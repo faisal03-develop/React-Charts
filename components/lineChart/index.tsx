@@ -1,25 +1,41 @@
+'use client';
 
-export default function LineChart() {
-  return (
-    <div>
-        LineChart
-        <div>
-            option = {
-                xAxis: {
-                    type: 'category',
-                    data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
-                },
-                yAxis: {
-                    type: 'value'
-                },
-                series: [
-                    {
-                    data: [150, 230, 224, 218, 135, 147, 260],
-                    type: 'line'
-                    }
-                ]
-                };
-        </div>
-    </div>
-  )
+import { useEffect, useRef } from 'react';
+import * as echarts from 'echarts';
+
+export default function BarChart() {
+  const chartRef = useRef(null);
+
+  useEffect(() => {
+    const chartInstance = echarts.init(chartRef.current);
+
+    const option = {
+      title: {
+        text: 'Line Chart Example',
+      },
+      tooltip: {},
+      legend: {
+        data: ['sales'],
+      },
+      xAxis: {
+        data: ['Shirts', 'Cardigans', 'Chiffons', 'Pants', 'Heels', 'Socks'],
+      },
+      yAxis: {},
+      series: [
+        {
+          name: 'sales',
+          type: 'line',
+          data: [5, 20, 36, 10, 10, 20],
+        },
+      ],
+    };
+
+    chartInstance.setOption(option);
+
+    return () => {
+      chartInstance.dispose();
+    };
+  }, []);
+
+  return <div ref={chartRef} style={{ width: '600px', height: '400px' }} />;
 }
