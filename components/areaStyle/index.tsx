@@ -10,7 +10,7 @@ export default function AreaChart({numbers}: {numbers: number[]}) {
     const chartInstance = echarts.init(chartRef.current);
     const option = {
       title: {
-            text: 'Line Chart Example',
+            text: 'AreaStyle Chart Example',
       },
       tooltip: {},
       legend: {
