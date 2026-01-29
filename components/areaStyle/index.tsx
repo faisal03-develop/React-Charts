@@ -3,7 +3,8 @@
 import { useEffect, useRef } from 'react';
 import * as echarts from 'echarts';
 
-export default function LineChart({numbers}: {numbers: number[]}) {
+
+export default function AreaChart({numbers}: {numbers: number[]}) {
   const chartRef = useRef(null);
   useEffect(() => {
     const chartInstance = echarts.init(chartRef.current);
@@ -26,6 +27,7 @@ export default function LineChart({numbers}: {numbers: number[]}) {
           name: 'sales',
           type: 'line',
           smooth: true,
+          areaStyle: {},
           data: numbers,
         },
       ],

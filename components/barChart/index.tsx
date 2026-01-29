@@ -1,14 +1,10 @@
 'use client';
 
-import generateRandomNumbers from '@/utils/randomNumbers/randomNumberGenerator';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import * as echarts from 'echarts';
 
-export default function BarChart() {
+export default function BarChart({numbers}: {numbers: number[]}) {
   const chartRef = useRef(null);
-
-  const numbers = generateRandomNumbers(10, 100, 10);
-console.log(`numbers: ${numbers}`);
   useEffect(() => {
     const chartInstance = echarts.init(chartRef.current);
     const option = {
