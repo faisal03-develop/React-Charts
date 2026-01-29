@@ -7,7 +7,7 @@ import * as echarts from 'echarts';
 export default function BarChart() {
   const chartRef = useRef(null);
 
-  const numbers = generateRandomNumbers(10, 100, 6);
+  const numbers = generateRandomNumbers(10, 100, 10);
 console.log(`numbers: ${numbers}`);
   useEffect(() => {
     const chartInstance = echarts.init(chartRef.current);
@@ -21,7 +21,7 @@ console.log(`numbers: ${numbers}`);
         data: ['sales'],
       },
       xAxis: {
-        data: ['Shirts', 'Cardigans', 'Chiffons', 'Pants', 'Heels', 'Socks'],
+        data: ['Shirts', 'Cardigans', 'Chiffons', 'Pants', 'Heels', 'Socks', 'Shirts', 'Cardigans', 'Chiffons', 'Pants'],
       },
       yAxis: {},
       series: [
